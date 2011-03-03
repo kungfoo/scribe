@@ -7,6 +7,9 @@ import io.BufferedSource
 
 trait LoadsTestResources {
 	val testResourcesPath = "src/test/resources/"
-	def resource(path: String) = new File(testResourcesPath + path)
+	
+	def resource(path: String) = new File(testResourcesPath, path)
 	def createSource(path: String) = new BufferedSource(new FileInputStream(resource(path)))
+	
+	def createFolder(path: String) = resource(path)
 }
